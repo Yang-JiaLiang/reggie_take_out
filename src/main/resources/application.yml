@@ -16,14 +16,14 @@ spring:
     password: mjflqskhbqgjjgeg  # 开启 IMAP/SMTP服务 获得的授权码,而不是qq邮箱的登录密码
     default-encoding: UTF-8
 
-    redis:
-      host: localhost # 本地IP 或是 虚拟机IP
-      port: 6379 #默认端口
+  redis:
+    host: localhost # 本地IP 或是 虚拟机IP
+    port: 6379 #默认端口
       #    password: root
-      database: 0  # 默认使用 0号db
-    cache:
-      redis:
-        time-to-live: 1800000  # 设置缓存数据的过期时间，30分钟 单位(ms)
+    database: 0  # 默认使用 0号db
+  cache:
+    redis:
+      time-to-live: 1800000  # 设置缓存数据的过期时间，30分钟 单位(ms)
 
 #使用mybatis-plus
 mybatis-plus:
