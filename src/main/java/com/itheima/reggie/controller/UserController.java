@@ -103,7 +103,7 @@ public class UserController {
             // 用户保存到数据库中后，会自动生成userId,
             session.setAttribute("user",user.getId());
 
-            // 如果用户登录成功，则删除Redis中缓存的验证码
+            // 如果用户登录成功，则删除Redis中缓存的验证码，根据键，删除值
             redisTemplate.delete(phone);
 
             //  需要在浏览器端保存用户信息，故返回的数据类型为 Result<User>
