@@ -23,7 +23,7 @@ spring:
     database: 0  # 默认使用 0号db
   cache:
     redis:
-        time-to-live: 1800000  # 设置缓存数据的过期时间，30分钟 单位(ms)
+      time-to-live: 1800000  # 设置缓存数据的过期时间，30分钟 单位(ms)
 
 #使用mybatis-plus
 mybatis-plus:

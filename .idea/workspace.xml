@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40733c91-0bc4-4d52-a12c-6d8b5447c286" name="变更" comment="加入redis，缓存验证码和菜品">
+    <list default="true" id="40733c91-0bc4-4d52-a12c-6d8b5447c286" name="变更" comment="无">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/controller/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/controller/DishController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itheima/reggie/controller/DishController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itheima/reggie/controller/DishController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/reggie_take_out-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/reggie_take_out-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/reggie_take_out-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/reggie_take_out-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.itheima.UploadFileTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.itheima.UploadFileTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.itheima.UploadFileTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.itheima.UploadFileTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/ReggieApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/ReggieApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/common/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/common/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/controller/SetmealController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/controller/SetmealController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itheima/reggie/ReggieApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itheima/reggie/ReggieApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itheima/reggie/common/R.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itheima/reggie/common/R.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itheima/reggie/controller/SetmealController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itheima/reggie/controller/SetmealController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,11 +27,6 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="v1.0" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -73,13 +67,10 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="模块" />
+    <property name="project.structure.last.edited" value="项目" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="http.certificates" />
-  </component>
-  <component name="ReactorSettings">
-    <option name="notificationShown" value="true" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -127,9 +118,6 @@
       <list>
         <item itemvalue="Spring Boot.ReggieApplication" />
         <item itemvalue="JUnit.UploadFileTest.test1" />
-        <item itemvalue="Spring Boot.ReggieApplication" />
-        <item itemvalue="JUnit.UploadFileTest.test1" />
-        <item itemvalue="Spring Boot.ReggieApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -170,19 +158,16 @@
       <workItem from="1658022826889" duration="714000" />
       <workItem from="1658023573481" duration="15465000" />
       <workItem from="1658130769492" duration="798000" />
-      <workItem from="1658583175637" duration="10402000" />
-      <workItem from="1658653403200" duration="301000" />
-      <workItem from="1658752417732" duration="1663000" />
-      <workItem from="1658754119630" duration="642000" />
-      <workItem from="1658754790378" duration="539000" />
-      <workItem from="1658796879062" duration="4912000" />
+      <workItem from="1658583175637" duration="3161000" />
+      <workItem from="1658826306119" duration="382000" />
+      <workItem from="1658828478835" duration="2159000" />
     </task>
-    <task id="LOCAL-00001" summary="加入redis，缓存验证码和菜品">
-      <created>1658646154639</created>
+    <task id="LOCAL-00001" summary="无">
+      <created>1658803818589</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1658646154639</updated>
+      <updated>1658803818589</updated>
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
@@ -203,8 +188,8 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="加入redis，缓存验证码和菜品" />
-    <option name="LAST_COMMIT_MESSAGE" value="加入redis，缓存验证码和菜品" />
+    <MESSAGE value="无" />
+    <option name="LAST_COMMIT_MESSAGE" value="无" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
