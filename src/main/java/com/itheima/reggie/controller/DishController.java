@@ -13,6 +13,7 @@ import com.itheima.reggie.service.DishService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -249,5 +250,14 @@ public class DishController {
         return R.error("售卖状态不可更改,请联系管理员或客服！");
 
     }
+
+    @DeleteMapping
+    @CacheEvict(value = "dishCache",allEntries = true) //删除dishCache这个分类下所有的缓存数据
+    public R<String> batchDelete(@RequestParam("ids") List<Long> ids){
+        dishService.batchDeleteByIds(ids);
+
+        return R.success("成功删除菜品！");
+    }
+
 
 }
