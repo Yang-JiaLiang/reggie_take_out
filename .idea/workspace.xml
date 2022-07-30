@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40733c91-0bc4-4d52-a12c-6d8b5447c286" name="变更" comment="套餐管理的修改">
+    <list default="true" id="40733c91-0bc4-4d52-a12c-6d8b5447c286" name="变更" comment="后台按条件查看和展示客户订单">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/dto/OrdersDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/service/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/service/impl/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itheima/reggie/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itheima/reggie/controller/OrderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itheima/reggie/service/SetmealService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itheima/reggie/service/SetmealService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itheima/reggie/service/impl/OrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itheima/reggie/service/impl/OrderServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +66,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/itheima/reggie/dto" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -78,10 +78,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\reggie_take_out\src\main\java\com\itheima\reggie\dto" />
       <recent name="D:\workspace\reggie_take_out\src\main\java\com\itheima\reggie\entity" />
       <recent name="D:\workspace\reggie_take_out\src\main\java\com\itheima\reggie\controller" />
       <recent name="D:\workspace\reggie_take_out\src\main\resources\front\page" />
-      <recent name="D:\workspace\reggie_take_out\src\main\java\com\itheima\reggie\dto" />
       <recent name="D:\workspace\reggie_take_out\src\main\java\com\itheima\reggie\config" />
     </key>
   </component>
@@ -171,7 +171,7 @@
       <workItem from="1658975247926" duration="99000" />
       <workItem from="1659082091004" duration="619000" />
       <workItem from="1659101423364" duration="289000" />
-      <workItem from="1659142031116" duration="12155000" />
+      <workItem from="1659142031116" duration="14552000" />
     </task>
     <task id="LOCAL-00001" summary="无">
       <created>1658803818589</created>
@@ -208,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659180220928</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="后台按条件查看和展示客户订单">
+      <created>1659183056390</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1659183056390</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +238,8 @@
     <MESSAGE value="菜品和套餐的批量启售、停售" />
     <MESSAGE value="菜品的批量删除" />
     <MESSAGE value="套餐管理的修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="套餐管理的修改" />
+    <MESSAGE value="后台按条件查看和展示客户订单" />
+    <option name="LAST_COMMIT_MESSAGE" value="后台按条件查看和展示客户订单" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
