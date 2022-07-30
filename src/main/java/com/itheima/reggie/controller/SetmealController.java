@@ -141,4 +141,26 @@ public class SetmealController {
         }
         return R.error("售卖状态不可更改,请联系管理员或客服！");
     }
+
+    /**
+     * 根据id查询套餐信息和对应套餐内菜品
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    public R<SetmealDto> getSetmel(@PathVariable("id") Long id){
+        SetmealDto setmealDto = setmealService.getSetmealData(id);
+        return R.success(setmealDto);
+    }
+
+    /**
+     * 修改套餐
+     * @param setmealDto
+     * @return
+     */
+    @PutMapping
+    public R<String> updateMeal(@RequestBody SetmealDto setmealDto){
+        setmealService.updateById(setmealDto);
+        return R.success("套餐修改成功！");
+    }
 }

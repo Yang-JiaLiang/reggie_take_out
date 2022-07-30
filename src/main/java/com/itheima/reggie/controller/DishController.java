@@ -63,7 +63,7 @@ public class DishController {
     }
 
     /**
-     * 菜品信息分页查询
+     * 菜品信息分页查询 （放在一页将会显得凌乱）
      * @param page
      * @param pageSize
      * @param name
@@ -121,7 +121,6 @@ public class DishController {
     public R<DishDto> get(@PathVariable Long id){
 
         DishDto dishDto = dishService.getByIdWithFlavor(id);
-
         return R.success(dishDto);
     }
 
@@ -251,6 +250,11 @@ public class DishController {
 
     }
 
+    /**
+     * 批量删除菜品
+     * @param ids
+     * @return
+     */
     @DeleteMapping
     @CacheEvict(value = "dishCache",allEntries = true) //删除dishCache这个分类下所有的缓存数据
     public R<String> batchDelete(@RequestParam("ids") List<Long> ids){
