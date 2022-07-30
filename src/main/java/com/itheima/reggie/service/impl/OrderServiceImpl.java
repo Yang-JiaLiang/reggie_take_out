@@ -96,6 +96,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
                 + (addressBook.getDistrictName() == null ? "" : addressBook.getDistrictName())
                 + (addressBook.getDetail() == null ? "" : addressBook.getDetail()));
         //向订单表插入数据，一条数据
+        //  --> ordersService.save(orders);
         this.save(orders);
 
         //向订单明细表插入数据，多条数据

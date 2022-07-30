@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40733c91-0bc4-4d52-a12c-6d8b5447c286" name="变更" comment="菜品的批量删除">
+    <list default="true" id="40733c91-0bc4-4d52-a12c-6d8b5447c286" name="变更" comment="套餐管理的修改">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/controller/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/controller/DishController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/controller/SetmealController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/controller/SetmealController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/service/SetmealService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/service/SetmealService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/service/impl/SetmealServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/service/impl/SetmealServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itheima/reggie/controller/DishController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itheima/reggie/controller/DishController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itheima/reggie/controller/SetmealController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itheima/reggie/controller/SetmealController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itheima/reggie/service/DishService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itheima/reggie/service/DishService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itheima/reggie/service/impl/SetmealServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itheima/reggie/service/impl/SetmealServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itheima/reggie/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itheima/reggie/controller/OrderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itheima/reggie/service/SetmealService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itheima/reggie/service/SetmealService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itheima/reggie/service/impl/OrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itheima/reggie/service/impl/OrderServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +171,7 @@
       <workItem from="1658975247926" duration="99000" />
       <workItem from="1659082091004" duration="619000" />
       <workItem from="1659101423364" duration="289000" />
-      <workItem from="1659142031116" duration="9347000" />
+      <workItem from="1659142031116" duration="12155000" />
     </task>
     <task id="LOCAL-00001" summary="无">
       <created>1658803818589</created>
@@ -204,7 +201,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659171356373</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="套餐管理的修改">
+      <created>1659180220928</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1659180220928</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,7 +230,8 @@
     <MESSAGE value="无" />
     <MESSAGE value="菜品和套餐的批量启售、停售" />
     <MESSAGE value="菜品的批量删除" />
-    <option name="LAST_COMMIT_MESSAGE" value="菜品的批量删除" />
+    <MESSAGE value="套餐管理的修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="套餐管理的修改" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
