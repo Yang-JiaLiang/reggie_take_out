@@ -223,4 +223,31 @@ public class DishController {
         return R.success(dishDtoList);
     }
 
+    /**
+     * 改变菜品的销售状态
+     * @param status
+     * @param ids
+     * @return
+     */
+    @PostMapping("/status/{status}")
+    public R<String> updateSaleStatus(@PathVariable("status") Integer status,@RequestParam List<Long> ids){
+        //  菜品具体的售卖状态 由前端修改并返回，该方法传入的status是 修改之后的售卖状态，可以直接根据一个或多个菜品id进行查询并修改售卖即可
+        //e.g： Request URL: http://localhost:8080/dish/status/0?ids=1413384757047271425,1413385247889891330
+        log.info("ids :"+ids);
+        LambdaQueryWrapper<Dish> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.in(ids != null,Dish::getId,ids);
+
+
+        List<Dish> list = dishService.list(queryWrapper);
+        if (list != null){
+            for (Dish dish : list) {
+                dish.setStatus(status);
+                dishService.updateById(dish);
+            }
+            return R.success("菜品的售卖状态已更改！");
+        }
+        return R.error("售卖状态不可更改,请联系管理员或客服！");
+
+    }
+
 }

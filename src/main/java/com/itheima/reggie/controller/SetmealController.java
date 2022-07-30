@@ -117,4 +117,28 @@ public class SetmealController {
         List<Setmeal> list = setmealService.list(queryWrapper);
         return R.success(list);
     }
+
+    /**
+     * 改变套餐的销售状态
+     * @param status
+     * @param ids
+     * @return
+     */
+    @PostMapping("/status/{status}")
+    public R<String> updateSetmealStatus (@PathVariable("status") Integer status,@RequestParam List<Long> ids) {
+       //套餐具体的销售状态，由前端修改并返回，该方法传入的status是 修改之后的售卖状态，可以直接根据一个或多个菜品id进行查询并修改售卖即可
+       //e.g： Request URL: http://localhost:8080/setmeal/status/0?ids=1553203698658373634,1553203616563261441
+        log.info("ids :"+ids);
+        LambdaQueryWrapper<Setmeal> queryWrapper =new LambdaQueryWrapper<>();
+        queryWrapper.in(ids!=null,Setmeal::getId,ids);
+        List<Setmeal> list = setmealService.list(queryWrapper);
+        if(list!=null) {
+            for (Setmeal setmeal : list) {
+                setmeal.setStatus(status);
+                setmealService.updateById(setmeal);
+            }
+            return R.success("套餐的售卖状态已修改!");
+        }
+        return R.error("售卖状态不可更改,请联系管理员或客服！");
+    }
 }
