@@ -29,7 +29,7 @@ public class LoginCheckFilter implements Filter {
         String requestURI = request.getRequestURI();
         log.info("拦截到请求：{}",requestURI);
 
-        //定义不需要处理的请求路径
+        //定义不需要处理的请求路径(不登录的情况下也能够访问)
         String[] urls = new String[]{
                 "/employee/login",
                 "/employee/logout",
@@ -37,7 +37,11 @@ public class LoginCheckFilter implements Filter {
                 "/front/**",
                 "/common/**",
                 "/user/sendMsg",  // 移动端 发送短信
-                "/user/login"     //  移动端登录
+                "/user/login",     //  移动端登录
+                "/doc.html",
+                "/webjars/**",
+                "/swagger-resources",
+                "/v2/api-docs"
         };
 
         //2、判断本次请求是否需要处理
