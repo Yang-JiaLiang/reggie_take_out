@@ -164,6 +164,7 @@ public class SetmealController {
      * @param setmealDto
      * @return
      */
+    @CacheEvict(value = "setmealCache",allEntries = true) //删除setmealCache这个分类下所以的缓存数据
     @PutMapping
     public R<String> updateMeal(@RequestBody SetmealDto setmealDto){
         setmealService.updateById(setmealDto);

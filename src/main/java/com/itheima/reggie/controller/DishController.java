@@ -45,6 +45,7 @@ public class DishController {
      * @param dishDto
      * @return
      */
+
     @PostMapping
     public R<String> save(@RequestBody DishDto dishDto){
         log.info(dishDto.toString());
@@ -256,7 +257,6 @@ public class DishController {
      * @return
      */
     @DeleteMapping
-    @CacheEvict(value = "dishCache",allEntries = true) //删除dishCache这个分类下所有的缓存数据
     public R<String> batchDelete(@RequestParam("ids") List<Long> ids){
         dishService.batchDeleteByIds(ids);
 
