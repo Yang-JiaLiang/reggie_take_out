@@ -76,23 +76,7 @@ public class OrderController {
         return R.success(ordersPage);
     }
 
-    /**
-     * 后台订单页面设置已派送
-     * @param orders
-     * @return
-     */
-    @PutMapping
-    public R<Orders> updateStatus(Orders orders){
 
-        Integer status = orders.getStatus();
-
-        if (status != null){
-            orders.setStatus(3);
-        }
-
-        orderService.updateById(orders);
-        return R.success(orders);
-    }
 
     /**
      * 用户查看自己订单
@@ -188,6 +172,24 @@ public class OrderController {
         shoppingCartService.saveBatch(shoppingCartList);
 
         return R.success("操作成功");
+    }
+
+    @PutMapping
+    public R<String> orderStatusChange(@RequestBody Map<String,String> map){
+
+        String id = map.get("id");
+        Long orderId = Long.parseLong(id);
+        Integer status = Integer.parseInt(map.get("status"));
+
+        if(orderId == null || status==null){
+            return R.error("传入信息不合法");
+        }
+        Orders orders = orderService.getById(orderId);
+        orders.setStatus(status);
+        orderService.updateById(orders);
+
+        return R.success("订单状态修改成功");
+
     }
 
 }

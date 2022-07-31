@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40733c91-0bc4-4d52-a12c-6d8b5447c286" name="变更" comment="移动端删除地址功能">
+    <list default="true" id="40733c91-0bc4-4d52-a12c-6d8b5447c286" name="变更" comment="移动端修改收货地址功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/controller/AddressBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/controller/AddressBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itheima/reggie/controller/AddressBookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itheima/reggie/controller/AddressBookController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itheima/reggie/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itheima/reggie/controller/OrderController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +173,7 @@
       <workItem from="1659082091004" duration="619000" />
       <workItem from="1659101423364" duration="289000" />
       <workItem from="1659142031116" duration="14806000" />
-      <workItem from="1659231153831" duration="16160000" />
+      <workItem from="1659231153831" duration="16984000" />
     </task>
     <task id="LOCAL-00001" summary="无">
       <created>1658803818589</created>
@@ -243,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659263000005</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="移动端修改收货地址功能">
+      <created>1659270464772</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1659270464772</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,7 +280,8 @@
     <MESSAGE value="移动端点击套餐图片查看套餐具体菜品" />
     <MESSAGE value="移动端再来一单功能" />
     <MESSAGE value="移动端删除地址功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="移动端删除地址功能" />
+    <MESSAGE value="移动端修改收货地址功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="移动端修改收货地址功能" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
