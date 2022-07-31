@@ -113,7 +113,11 @@ public class UserController {
         return R.error("登录失败，请重新登录!");
     }
 
-    // loginout
+    /**
+     * 移动端退出登录
+     * @param request
+     * @return
+     */
     @PostMapping("/loginout")
     public R<String> logout(HttpServletRequest request){
         request.getSession().removeAttribute("userPhone");
