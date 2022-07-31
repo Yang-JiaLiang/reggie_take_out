@@ -102,4 +102,26 @@ public class AddressBookController {
         //SQL:select * from address_book where user_id = ? order by update_time desc
         return R.success(addressBookService.list(queryWrapper));
     }
+
+
+    /**
+     * 根据地址id删除用户地址
+     * @param id
+     * @return
+     */
+    @DeleteMapping
+    public R<String> delete(@RequestParam("ids") Long id){
+        //Request URL: http://localhost:8080/addressBook?ids=1553355697278300161
+        if (id == null){
+            return R.error("请求异常");
+        }
+        LambdaQueryWrapper<AddressBook> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(AddressBook::getId,id);
+        //addressBookService.removeById(id);
+        addressBookService.remove(queryWrapper);
+
+        return R.success("删除地址成功");
+    }
+
+
 }
