@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="40733c91-0bc4-4d52-a12c-6d8b5447c286" name="变更" comment="移动端修改收货地址功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itheima/reggie/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itheima/reggie/controller/AddressBookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itheima/reggie/controller/AddressBookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itheima/reggie/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itheima/reggie/controller/OrderController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,6 +171,8 @@
       <workItem from="1659101423364" duration="289000" />
       <workItem from="1659142031116" duration="14806000" />
       <workItem from="1659231153831" duration="16984000" />
+      <workItem from="1659319815470" duration="6000" />
+      <workItem from="1659319844475" duration="528000" />
     </task>
     <task id="LOCAL-00001" summary="无">
       <created>1658803818589</created>
