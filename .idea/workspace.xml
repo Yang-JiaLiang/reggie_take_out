@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40733c91-0bc4-4d52-a12c-6d8b5447c286" name="变更" comment="移动端修改收货地址功能" />
+    <list default="true" id="40733c91-0bc4-4d52-a12c-6d8b5447c286" name="变更" comment="移动端修改收货地址功能">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,7 +69,7 @@
     <property name="project.structure.last.edited" value="项目" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
@@ -173,6 +175,14 @@
       <workItem from="1659319844475" duration="528000" />
       <workItem from="1659320548655" duration="387000" />
       <workItem from="1659321029354" duration="109000" />
+      <workItem from="1659321190507" duration="1450000" />
+      <workItem from="1659322780118" duration="143000" />
+      <workItem from="1659322944870" duration="1394000" />
+      <workItem from="1659435095865" duration="122000" />
+      <workItem from="1659435582365" duration="113000" />
+      <workItem from="1659435912474" duration="2079000" />
+      <workItem from="1659444458117" duration="33000" />
+      <workItem from="1659583353359" duration="411000" />
     </task>
     <task id="LOCAL-00001" summary="无">
       <created>1658803818589</created>
@@ -265,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659321078437</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="移动端修改收货地址功能">
+      <created>1659321201289</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1659321201289</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
