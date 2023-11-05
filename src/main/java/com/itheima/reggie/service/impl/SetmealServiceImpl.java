@@ -87,11 +87,11 @@ public class SetmealServiceImpl extends ServiceImpl<SetmealMapper, Setmeal> impl
         SetmealDto setmealDto = new SetmealDto();
 
         LambdaQueryWrapper<SetmealDish> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(id != null,SetmealDish::getSetmealId,id); //同一个套餐内的setmeal_id是一样的，获取所有等于（eq）参数id的菜品
+        queryWrapper.eq(id != null, SetmealDish::getSetmealId, id); //同一个套餐内的setmeal_id是一样的，获取所有等于（eq）参数id的菜品
 
 
-        if (setmeal != null){
-            BeanUtils.copyProperties(setmeal,setmealDto);
+        if (setmeal != null) {
+            BeanUtils.copyProperties(setmeal, setmealDto);
 
             List<SetmealDish> dishes = setmealDishService.list(queryWrapper);
             setmealDto.setSetmealDishes(dishes);

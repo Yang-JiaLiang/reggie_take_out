@@ -77,17 +77,18 @@ public class CategoryController {
 
     /**
      * 根据条件查询分类数据(在添加菜品的菜品分类框回显/在添加套餐的套餐分类框回显)
+     *
      * @param category
      * @return
      */
     @GetMapping("/list")
-    public R<List<Category>> list(Category category){
+    public R<List<Category>> list(Category category) {
         //条件构造器
         LambdaQueryWrapper<Category> queryWrapper = new LambdaQueryWrapper<>();
         //添加条件
         // (type为1,是 菜品分类的若干条数据,如湘菜,粤菜,饮品,主食. type为2,是套餐分类的若干条数据, 如商务套餐,儿童套餐.)
         // 把相同类型的放在一组
-        queryWrapper.eq(category.getType() != null,Category::getType,category.getType());
+        queryWrapper.eq(category.getType() != null, Category::getType, category.getType());
         //添加排序条件(对相同组别按照设置的要求排序)
         queryWrapper.orderByAsc(Category::getSort).orderByDesc(Category::getUpdateTime);
 

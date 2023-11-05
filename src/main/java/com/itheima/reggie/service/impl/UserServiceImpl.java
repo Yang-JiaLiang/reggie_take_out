@@ -23,7 +23,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
 
     @Override
-    public void sendMsg(String to,String subject,String context){
+    public void sendMsg(String to, String subject, String context) {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
 
         mailMessage.setFrom(from);

@@ -106,17 +106,18 @@ public class AddressBookController {
 
     /**
      * 根据地址id删除用户地址
+     *
      * @param id
      * @return
      */
     @DeleteMapping
-    public R<String> delete(@RequestParam("ids") Long id){
+    public R<String> delete(@RequestParam("ids") Long id) {
         //Request URL: http://localhost:8080/addressBook?ids=1553355697278300161
-        if (id == null){
+        if (id == null) {
             return R.error("请求异常");
         }
         LambdaQueryWrapper<AddressBook> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(AddressBook::getId,id);
+        queryWrapper.eq(AddressBook::getId, id);
         //addressBookService.removeById(id);
         addressBookService.remove(queryWrapper);
 
@@ -125,20 +126,20 @@ public class AddressBookController {
 
     /**
      * 修改收货地址
+     *
      * @param addressBook
      * @return
      */
     @PutMapping
-    public R<String> update(@RequestBody AddressBook addressBook){
+    public R<String> update(@RequestBody AddressBook addressBook) {
 
-        if (addressBook == null){
+        if (addressBook == null) {
             return R.error("请求异常");
         }
         addressBookService.updateById(addressBook);
 
         return R.success("修改成功");
     }
-
 
 
 }

@@ -25,13 +25,13 @@ public class DishFlavor implements Serializable {
     private LocalDateTime createTime;
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    private  LocalDateTime updateTime;
+    private LocalDateTime updateTime;
 
     @TableField(fill = FieldFill.INSERT)
     private Long createUser;
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    private  Long updateUser;
+    private Long updateUser;
 
     private Integer isDeleted;
 }

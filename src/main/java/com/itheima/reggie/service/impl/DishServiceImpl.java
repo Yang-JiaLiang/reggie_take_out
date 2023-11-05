@@ -32,8 +32,8 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements Di
         Long dishId = dishDto.getId(); //菜品id
 
         //菜品口味
-        List<DishFlavor> flavors =dishDto.getFlavors();
-        flavors.stream().map((item)->{ //每一个item都是DishFlavor实体
+        List<DishFlavor> flavors = dishDto.getFlavors();
+        flavors.stream().map((item) -> { //每一个item都是DishFlavor实体
             item.setDishId((dishId));
             return item;
         }).collect(Collectors.toList());
@@ -43,6 +43,7 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements Di
 
     /**
      * 根据id查询菜品信息和对应的口味信息
+     *
      * @param id
      * @return
      */
@@ -50,12 +51,12 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements Di
     public DishDto getByIdWithFlavor(Long id) {
         //查询菜品基本信息,从dish表查询
         Dish dish = this.getById(id);
-        DishDto dishDto =new DishDto();
-        BeanUtils.copyProperties(dish,dishDto); //拷贝基本属性(除了口味)
+        DishDto dishDto = new DishDto();
+        BeanUtils.copyProperties(dish, dishDto); //拷贝基本属性(除了口味)
 
         //查询当前菜品的口味,从dish_flavor表查询
-        LambdaQueryWrapper<DishFlavor> queryWrapper =new LambdaQueryWrapper<>();
-        queryWrapper.eq(DishFlavor::getDishId,dish.getId());
+        LambdaQueryWrapper<DishFlavor> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(DishFlavor::getDishId, dish.getId());
         List<DishFlavor> flavors = dishFlavorService.list(queryWrapper);
         dishDto.setFlavors(flavors);
 
@@ -65,12 +66,12 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements Di
     @Override
     @Transactional //保证数据的一致性,涉及到多张表时使用
     public void updateWithFlavor(DishDto dishDto) {
-       //更新dish表基本信息
+        //更新dish表基本信息
         this.updateById(dishDto);
 
         //清理当前菜品对应口味数据----dish_flavor表的delete操作
-        LambdaQueryWrapper<DishFlavor> queryWrapper =new LambdaQueryWrapper<>();
-        queryWrapper.eq(DishFlavor::getDishId,dishDto.getId());
+        LambdaQueryWrapper<DishFlavor> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(DishFlavor::getDishId, dishDto.getId());
         dishFlavorService.remove(queryWrapper);
 
         //添加当前菜品的新口味数据----dish_flavor表的insert操作
@@ -88,16 +89,16 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements Di
     @Override
     public void batchDeleteByIds(List<Long> ids) {
         LambdaQueryWrapper<Dish> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.in(ids != null,Dish::getId,ids);
+        queryWrapper.in(ids != null, Dish::getId, ids);
 
         //  mybatisplus提供了 list方法，故 this.list(queryWrapper); -->dishService.list(queryWrapper);
         List<Dish> list = this.list(queryWrapper);
 
-        if (list != null){
+        if (list != null) {
             for (Dish dish : list) {
-                if (dish.getStatus() == 0){
+                if (dish.getStatus() == 0) {
                     this.removeByIds(ids);
-                }else {
+                } else {
                     throw new CustomException("有菜品正在售卖，无法全部删除！");
                 }
             }

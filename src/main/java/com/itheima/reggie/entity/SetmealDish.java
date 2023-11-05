@@ -3,6 +3,7 @@ package com.itheima.reggie.entity;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

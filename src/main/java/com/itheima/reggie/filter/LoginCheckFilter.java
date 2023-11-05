@@ -16,7 +16,7 @@ import java.io.IOException;
  * 检查用户是否已经完成登录
  */
 @Slf4j
-@WebFilter(filterName = "loginCheckFilter",urlPatterns = "/*")
+@WebFilter(filterName = "loginCheckFilter", urlPatterns = "/*")
 public class LoginCheckFilter implements Filter {
     //路径匹配器,支持通配符
     public static final AntPathMatcher PATH_MATCHER = new AntPathMatcher();
@@ -27,7 +27,7 @@ public class LoginCheckFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         //1、获取本次请求的URI
         String requestURI = request.getRequestURI();
-        log.info("拦截到请求：{}",requestURI);
+        log.info("拦截到请求：{}", requestURI);
 
         //定义不需要处理的请求路径(不登录的情况下也能够访问)
         String[] urls = new String[]{
@@ -55,10 +55,10 @@ public class LoginCheckFilter implements Filter {
         }
         // 4-1、判断登录状态(session中含有employee的登录信息)，如果已经登录，则直接放行
         if (request.getSession().getAttribute("employee") != null) {
-            log.info("用户已登录，用户id为：{}",request.getSession().getAttribute("employee"));
+            log.info("用户已登录，用户id为：{}", request.getSession().getAttribute("employee"));
 
             long id = Thread.currentThread().getId();
-            log.info("线程id: {}",id);
+            log.info("线程id: {}", id);
 
             Long empId = (Long) request.getSession().getAttribute("employee");
             BaseContext.setCurrentId(empId);
@@ -69,14 +69,14 @@ public class LoginCheckFilter implements Filter {
 
         // 4-2、判断 移动端(消费者端)登录状态(session中含有employee的登录信息)，如果已经登录，则直接放行
         Long userId = (Long) request.getSession().getAttribute("user");
-        if (userId != null){
-            log.info("用户已经登录，用户id为:{}",userId);
+        if (userId != null) {
+            log.info("用户已经登录，用户id为:{}", userId);
 
             // 自定义元数据对象处理器 MyMetaObjectHandler中需要使用 登录用户id
             //   通过ThreadLocal set和get用户id
             BaseContext.setCurrentId(userId);
 
-            filterChain.doFilter(request,response);
+            filterChain.doFilter(request, response);
             return;
         }
 
@@ -85,20 +85,22 @@ public class LoginCheckFilter implements Filter {
         response.getWriter().write(JSON.toJSONString(R.error("NOTLOGIN")));
         return;
     }
-        /**
-         * 路径匹配,检查本次请求是否需要放行
-         * @param urls
-         * @param requestURI
-         * @return
-         */
-        public boolean check (String[] urls, String requestURI){
-            for (String url : urls) {
-                boolean match = PATH_MATCHER.match(url, requestURI);
-                if (match) {
-                    return true;
-                }
 
+    /**
+     * 路径匹配,检查本次请求是否需要放行
+     *
+     * @param urls
+     * @param requestURI
+     * @return
+     */
+    public boolean check(String[] urls, String requestURI) {
+        for (String url : urls) {
+            boolean match = PATH_MATCHER.match(url, requestURI);
+            if (match) {
+                return true;
             }
-            return false;//整个for循环全部都没匹配上,则返回false
+
         }
+        return false;//整个for循环全部都没匹配上,则返回false
+    }
 }

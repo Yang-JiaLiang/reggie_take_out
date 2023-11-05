@@ -43,25 +43,25 @@ public class UserController {
 
     // 发送邮箱验证码
     @PostMapping("/sendMsg") // sendMsg
-    public R<String> sendMsg(@RequestBody User user, HttpSession session){
+    public R<String> sendMsg(@RequestBody User user, HttpSession session) {
         //  获取邮箱账号
         String phone = user.getPhone();
 
         String subject = "瑞吉外卖登录验证码";
-        if (StringUtils.isNotEmpty(phone)){
+        if (StringUtils.isNotEmpty(phone)) {
             String code = ValidateCodeUtils.generateValidateCode(4).toString();
             String context = "欢迎使用瑞吉外卖，登录验证码为: " + code + ",五分钟内有效，请妥善保管!";
 
-             log.info("code={}",code);
+            log.info("code={}", code);
 
-             // 真正地发送邮箱验证码
-             userService.sendMsg(phone,subject,context);
+            // 真正地发送邮箱验证码
+            userService.sendMsg(phone, subject, context);
 
             //  将随机生成的验证码保存到session中
 //            session.setAttribute(phone,code);
 
             // 验证码由保存到session 优化为 缓存到Redis中，并且设置验证码的有效时间为 5分钟
-            redisTemplate.opsForValue().set(phone,code,5, TimeUnit.MINUTES);
+            redisTemplate.opsForValue().set(phone, code, 5, TimeUnit.MINUTES);
 
             return R.success("验证码发送成功，请及时查看!");
         }
@@ -71,9 +71,9 @@ public class UserController {
 
     // 消费者端 用户登录
     @PostMapping("/login")
-    public R<User> login(@RequestBody Map map, HttpSession session){
+    public R<User> login(@RequestBody Map map, HttpSession session) {
 
-        log.info("userMap:{}"+map.toString());
+        log.info("userMap:{}" + map.toString());
         // 获取登录表单的 邮箱账号
         String phone = map.get("phone").toString(); //在页面输入的邮箱为接受者,如果也输入1461027098@qq.com,则是自己给自己发
         // 获取 验证码
@@ -86,13 +86,13 @@ public class UserController {
         Object codeInSession = redisTemplate.opsForValue().get(phone);
 
         //  页面提交的验证码 和 Session中保存的验证码 进行比对
-        if (codeInSession != null && codeInSession.equals(code)){
+        if (codeInSession != null && codeInSession.equals(code)) {
             //  验证比对无误后，可以成功登录
             LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
-            queryWrapper.eq(User::getPhone,phone);
+            queryWrapper.eq(User::getPhone, phone);
 
             User user = userService.getOne(queryWrapper); //如果没有查出来,user就是空,用getOne()是因为邮箱是唯一的
-            if (user == null){  // 数据库中没有当前用户，即当前用户为新用户
+            if (user == null) {  // 数据库中没有当前用户，即当前用户为新用户
                 //  新用户 自动注册，其信息保存到数据库中
                 user = new User();
                 user.setPhone(phone);
@@ -101,7 +101,7 @@ public class UserController {
                 userService.save(user);
             }
             // 用户保存到数据库中后，会自动生成userId,
-            session.setAttribute("user",user.getId());
+            session.setAttribute("user", user.getId());
 
             // 如果用户登录成功，则删除Redis中缓存的验证码，根据键，删除值
             redisTemplate.delete(phone);
@@ -115,11 +115,12 @@ public class UserController {
 
     /**
      * 移动端退出登录
+     *
      * @param request
      * @return
      */
     @PostMapping("/loginout")
-    public R<String> logout(HttpServletRequest request){
+    public R<String> logout(HttpServletRequest request) {
         request.getSession().removeAttribute("userPhone");
         return R.success("安全退出成功！");
     }

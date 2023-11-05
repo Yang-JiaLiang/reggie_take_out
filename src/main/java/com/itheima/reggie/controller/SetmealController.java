@@ -45,21 +45,22 @@ public class SetmealController {
 
     /**
      * 新增套餐
+     *
      * @param setmealDto
      * @return
      */
     @PostMapping
-    @CacheEvict(value = "setmealCache",allEntries = true) //删除setmealCache这个分类下所以的缓存数据
+    @CacheEvict(value = "setmealCache", allEntries = true) //删除setmealCache这个分类下所以的缓存数据
     public R<String> save(@RequestBody SetmealDto setmealDto) {
         setmealService.saveWithDish(setmealDto);
         return R.success("新增套餐成功");
     }
 
     @GetMapping("/page")
-    public  R<Page> page(int page,int pageSize,String name) {
+    public R<Page> page(int page, int pageSize, String name) {
         //构造分页构造器对象
         Page<Setmeal> pageinfo = new Page<>(page, pageSize);
-        Page<SetmealDto> setmealDtoPage =new Page<>();
+        Page<SetmealDto> setmealDtoPage = new Page<>();
         //条件构造器
         LambdaQueryWrapper<Setmeal> queryWrapper = new LambdaQueryWrapper<>();
         //添加过滤条件
@@ -70,7 +71,7 @@ public class SetmealController {
         setmealService.page(pageinfo, queryWrapper);
 
         //对象拷贝
-        BeanUtils.copyProperties(pageinfo,setmealDtoPage,"records");//不拷贝records,是因为泛型不一样
+        BeanUtils.copyProperties(pageinfo, setmealDtoPage, "records");//不拷贝records,是因为泛型不一样
         List<Setmeal> records = pageinfo.getRecords();
         List<SetmealDto> list = records.stream().map((item) -> {
             SetmealDto setmealDto = new SetmealDto();
@@ -85,37 +86,39 @@ public class SetmealController {
             return setmealDto;
         }).collect(Collectors.toList());//赋给了66行的list
 
-          setmealDtoPage.setRecords(list); //将最后完善的records,再set一下
+        setmealDtoPage.setRecords(list); //将最后完善的records,再set一下
 
         return R.success(setmealDtoPage);
     }
 
     /**
      * 删除套餐
+     *
      * @param ids
      * @return
      */
     @DeleteMapping
-    @CacheEvict(value = "setmealCache",allEntries = true) //删除setmealCache这个分类下所以的缓存数据
+    @CacheEvict(value = "setmealCache", allEntries = true) //删除setmealCache这个分类下所以的缓存数据
     public R<String> delete(@RequestParam List<Long> ids) {
-        log.info("ids: {}",ids);
+        log.info("ids: {}", ids);
         setmealService.removeWithDish(ids);
         return R.success("套餐数据删除成功");
     }
 
     /**
      * 根据条件查询对应的套餐数据
+     *
      * @param setmeal
      * @return
      */
     @GetMapping("/list")
-    @Cacheable(value = "setmealCache",key = "#setmeal.categoryId+'_'+#setmeal.status")
-    public  R<List<Setmeal>> list(Setmeal setmeal) {
+    @Cacheable(value = "setmealCache", key = "#setmeal.categoryId+'_'+#setmeal.status")
+    public R<List<Setmeal>> list(Setmeal setmeal) {
         //构造查询条件
-        LambdaQueryWrapper<Setmeal> queryWrapper =new LambdaQueryWrapper<>();
-        queryWrapper.eq(setmeal.getCategoryId()!=null ,Setmeal::getCategoryId,setmeal.getCategoryId());
+        LambdaQueryWrapper<Setmeal> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(setmeal.getCategoryId() != null, Setmeal::getCategoryId, setmeal.getCategoryId());
         //添加条件,查询状态为1的套餐
-        queryWrapper.eq(Setmeal::getStatus,1);
+        queryWrapper.eq(Setmeal::getStatus, 1);
 
         //添加排序条件
         queryWrapper.orderByDesc(Setmeal::getUpdateTime);
@@ -126,19 +129,20 @@ public class SetmealController {
 
     /**
      * 改变套餐的销售状态
+     *
      * @param status
      * @param ids
      * @return
      */
     @PostMapping("/status/{status}")
-    public R<String> updateSetmealStatus (@PathVariable("status") Integer status,@RequestParam List<Long> ids) {
-       //套餐具体的销售状态，由前端修改并返回，该方法传入的status是 修改之后的售卖状态，可以直接根据一个或多个菜品id进行查询并修改售卖即可
-       //e.g： Request URL: http://localhost:8080/setmeal/status/0?ids=1553203698658373634,1553203616563261441
-        log.info("ids :"+ids);
-        LambdaQueryWrapper<Setmeal> queryWrapper =new LambdaQueryWrapper<>();
-        queryWrapper.in(ids!=null,Setmeal::getId,ids);
+    public R<String> updateSetmealStatus(@PathVariable("status") Integer status, @RequestParam List<Long> ids) {
+        //套餐具体的销售状态，由前端修改并返回，该方法传入的status是 修改之后的售卖状态，可以直接根据一个或多个菜品id进行查询并修改售卖即可
+        //e.g： Request URL: http://localhost:8080/setmeal/status/0?ids=1553203698658373634,1553203616563261441
+        log.info("ids :" + ids);
+        LambdaQueryWrapper<Setmeal> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.in(ids != null, Setmeal::getId, ids);
         List<Setmeal> list = setmealService.list(queryWrapper);
-        if(list!=null) {
+        if (list != null) {
             for (Setmeal setmeal : list) {
                 setmeal.setStatus(status);
                 setmealService.updateById(setmeal);
@@ -150,23 +154,25 @@ public class SetmealController {
 
     /**
      * 根据id查询套餐信息和对应套餐内菜品
+     *
      * @param id
      * @return
      */
     @GetMapping("/{id}")
-    public R<SetmealDto> getSetmel(@PathVariable("id") Long id){
+    public R<SetmealDto> getSetmel(@PathVariable("id") Long id) {
         SetmealDto setmealDto = setmealService.getSetmealData(id);
         return R.success(setmealDto);
     }
 
     /**
      * 修改套餐
+     *
      * @param setmealDto
      * @return
      */
-    @CacheEvict(value = "setmealCache",allEntries = true) //删除setmealCache这个分类下所以的缓存数据
+    @CacheEvict(value = "setmealCache", allEntries = true) //删除setmealCache这个分类下所以的缓存数据
     @PutMapping
-    public R<String> updateMeal(@RequestBody SetmealDto setmealDto){
+    public R<String> updateMeal(@RequestBody SetmealDto setmealDto) {
         setmealService.updateById(setmealDto);
         return R.success("套餐修改成功！");
     }
@@ -176,14 +182,15 @@ public class SetmealController {
      * 移动端点击套餐图片查看套餐具体内容
      * 这里返回的是dto 对象，因为前端需要copies这个属性
      * 前端主要要展示的信息是:套餐中菜品的基本信息，图片，菜品描述，以及菜品的份数
+     *
      * @param SetmealId
      * @return
      */
     //这里前端是使用路径来传值的，要注意，不然你前端的请求都接收不到，就有点尴尬哈
     @GetMapping("/dish/{id}")
-    public R<List<DishDto>> dish(@PathVariable("id") Long SetmealId){
+    public R<List<DishDto>> dish(@PathVariable("id") Long SetmealId) {
         LambdaQueryWrapper<SetmealDish> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(SetmealDish::getSetmealId,SetmealId);
+        queryWrapper.eq(SetmealDish::getSetmealId, SetmealId);
         //获取套餐里面的所有菜品  这个就是SetmealDish表里面的数据
         List<SetmealDish> list = setmealDishService.list(queryWrapper);
 
@@ -194,10 +201,10 @@ public class SetmealController {
             //这里是为了把套餐中的菜品的基本信息填充到dto中，比如菜品描述，菜品图片等菜品的基本信息
             Long dishId = setmealDish.getDishId();
 
-                Dish dish = dishService.getById(dishId);
-                if(dish!= null) {
-                    BeanUtils.copyProperties(dish, dishDto);
-                }
+            Dish dish = dishService.getById(dishId);
+            if (dish != null) {
+                BeanUtils.copyProperties(dish, dishDto);
+            }
             return dishDto;
         }).collect(Collectors.toList());
 

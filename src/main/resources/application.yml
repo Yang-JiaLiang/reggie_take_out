@@ -7,17 +7,25 @@ spring:
   mail:
     host: smtp.qq.com  # 发送邮件的服务器地址
     username: 1461027098@qq.com # 登录qq邮箱的账号
-    password: mjflqskhbqgjjgeg  # 开启 IMAP/SMTP服务 获得的授权码,而不是qq邮箱的登录密码
+#    password: mjflqskhbqgjjgeg  # 开启 IMAP/SMTP服务 获得的授权码,而不是qq邮箱的登录密码
+    password: vfynsnhhcafmbabd
     default-encoding: UTF-8
 
   redis:
     host: localhost # 本地IP 或是 虚拟机IP
     port: 6379 #默认端口
-      #    password: root
+    #    password: root
     database: 0  # 默认使用 0号db
   cache:
     redis:
       time-to-live: 1800000  # 设置缓存数据的过期时间，30分钟 单位(ms)
+
+#  datasource:
+#    druid:
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      url: jdbc:mysql://localhost:3306/reggie?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+#      username: root
+#      password: hj314159
 
   shardingsphere:
     datasource:
@@ -50,8 +58,12 @@ spring:
       sql:
         show: true #开启SQL显示，默认false，开启后能在控制台输出SQL
 
+
   main:
     allow-bean-definition-overriding: true
+
+
+
 
 #使用mybatis-plus
 mybatis-plus:
@@ -64,6 +76,6 @@ mybatis-plus:
       id-type: ASSIGN_ID
 
 reggie:
-  path: D:\workspace\reggie_take_out\src\main\resources\backend\images\dishes\
+  path: D:\workspace\project\reggie_take_out\src\main\resources\backend\images\dishes\
 
 
